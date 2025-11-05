@@ -13,9 +13,20 @@ func main() {
 func getResult( userHeight, userWeight float64 ) {
 	const IMTPower = 2
 	IMT := userWeight / math.Pow(userHeight/100, IMTPower)
-	
-	fmt.Printf("result: %.0f", IMT)
-}
+
+	switch {
+	case IMT < 16:
+		fmt.Println("Severe body mass deficit")
+	case IMT < 18.5:
+		fmt.Println("Body mass deficit")
+	case IMT < 25:
+		fmt.Println("Normal")
+	case IMT < 30:
+		fmt.Println("Overweigh")
+	default:
+		fmt.Println("degree obesity")
+	}
+ }
 
 func getUserValues () (float64, float64) {
 	var userHeight float64
